@@ -1,8 +1,15 @@
 import { Injectable } from '@nestjs/common';
 
+
+interface Car {
+  id: number;
+  brand: string;
+  model: string;
+}
+
 @Injectable()
 export class CarsService {
-  private cars = [
+  private cars: Car[] = [
     {
       id: 1,
       brand: 'Toyota',
@@ -20,12 +27,12 @@ export class CarsService {
     },
   ]
 
-  findAll() {
+  findAll(): any[] {
     return this.cars;
   }
 
-  findOneById( id: number ) {
-    const car = this.cars.find( ( car: any ) => car.id === id );
+  findOneById( id: number ): any {
+    const car = this.cars.find( ( car: Car ) => car.id === id );
     return car;
   }
 }
