@@ -10,6 +10,8 @@ import {
   Patch,
   Post
 } from '@nestjs/common';
+// DTO
+import { CreateCarDto } from './dto/create-car.dto';
 // Services
 import { CarsService } from './cars.service';
 
@@ -32,8 +34,8 @@ export class CarsController {
   }
 
   @Post()
-  createCar( @Body() body: any ) {
-    return body;
+  createCar( @Body() createCarDto: CreateCarDto ) {
+    return createCarDto;
   }
 
   @Patch(':id')
