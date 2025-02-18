@@ -18,21 +18,13 @@ import { Car } from './interfaces/car.interface';
 @Injectable()
 export class CarsService {
   private cars: Car[] = [
+    /*
     {
       id: uuid(),
       brand: 'Toyota',
       model: 'Corolla'
     },
-    {
-      id: uuid(),
-      brand: 'Honda',
-      model: 'Civic'
-    },
-    {
-      id: uuid(),
-      brand: 'Jeep',
-      model: 'Cherokee'
-    },
+     * */
   ]
 
   findAll(): any[] {
