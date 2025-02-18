@@ -6,7 +6,10 @@ import {
 // Uuid
 import { v4 as uuid } from 'uuid';
 // Dto
-import { CreateCarDto } from './dto/create-car.dto';
+import {
+  CreateCarDto,
+  UpdateCarDto
+} from './dto';
 // Interface
 import { Car } from './interfaces/car.interface';
 
@@ -51,5 +54,12 @@ export class CarsService {
     this.cars.push( car );
 
     return car;
+  }
+
+  update(
+    id: string,
+    updateCarDto: UpdateCarDto
+  ) {
+
   }
 }
