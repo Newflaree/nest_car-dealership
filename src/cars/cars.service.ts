@@ -5,6 +5,8 @@ import {
 } from '@nestjs/common';
 // Uuid
 import { v4 as uuid } from 'uuid';
+// Dto
+import { CreateCarDto } from './dto/create-car.dto';
 // Interface
 import { Car } from './interfaces/car.interface';
 
@@ -36,6 +38,17 @@ export class CarsService {
   findOneById( id: string ): any {
     const car = this.cars.find( ( car: Car ) => car.id === id );
     if ( !car ) throw new NotFoundException( `Car with id '${ id }' not found` );
+
+    return car;
+  }
+
+  create( createCarDto: CreateCarDto ) {
+    const car: Car = {
+      id: uuid(),
+      ...createCarDto
+    }
+
+    this.cars.push( car );
 
     return car;
   }
